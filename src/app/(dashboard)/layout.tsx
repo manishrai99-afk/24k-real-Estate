@@ -32,7 +32,7 @@ import {
   initialLeads,
   initialProperties,
   initialDeals,
-} from "../../../lib/mock-data";
+} from "../../lib/mock-data";
 
 type ToastType = "success" | "info" | "warning" | "error";
 interface Toast {

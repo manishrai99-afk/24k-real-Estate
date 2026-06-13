@@ -310,6 +310,55 @@ export const initialLedger: Commission[] = [
   { id: "COM-704", dealId: "DL-0024", unit: "Godrej 24 B-1105", builder: "Godrej Properties", agent: "Amit Kulkarni", totalContract: 11800000, agentComm: 147500, teamComm: 14750, builderComm: 295000, status: "APPROVED",
     approvals: [ { name: "Sarah Fernandes", role: "Sales Manager", status: "APPROVED", date: "2026-06-13" }, { name: "Rohan Deshmukh", role: "Admin", status: "APPROVED", date: "2026-06-13" } ] },
 ];
+export interface Chat {
+  id: string;
+  client: string;
+  channel: "WHATSAPP" | "EMAIL" | "SMS";
+  lastMessage: string;
+  time: string;
+  unread: boolean;
+  history: { sender: string; text: string; time: string }[];
+}
+
+export const initialChats: Chat[] = [
+  {
+    id: "chat-1",
+    client: "Ramesh Nair",
+    channel: "WHATSAPP",
+    lastMessage: "Balcony riverside view details needed.",
+    time: "10:45 AM",
+    unread: true,
+    history: [
+      { sender: "Client (Ramesh)", text: "Hi, interested in VTP Blue Waters.", time: "10:30 AM" },
+      { sender: "Agent (You)", text: "Hello Ramesh, I have scheduled a site visit for you this weekend.", time: "10:40 AM" },
+      { sender: "Client (Ramesh)", text: "Thanks. Please share if balcony riverside view details are available.", time: "10:45 AM" }
+    ]
+  },
+  {
+    id: "chat-2",
+    client: "Priya Deshmukh",
+    channel: "EMAIL",
+    lastMessage: "Draft Agreement reviewed, payment schedule is acceptable.",
+    time: "Yesterday",
+    unread: false,
+    history: [
+      { sender: "Agent (You)", text: "Hi Priya, sharing the Draft SPA Agreement for Godrej 24 TB-1602.", time: "09:15 AM" },
+      { sender: "Client (Priya)", text: "Draft Agreement reviewed, payment schedule is acceptable.", time: "04:30 PM" }
+    ]
+  },
+  {
+    id: "chat-3",
+    client: "Amit Patel",
+    channel: "SMS",
+    lastMessage: "Sure, let's meet at 11 AM.",
+    time: "2 days ago",
+    unread: false,
+    history: [
+      { sender: "Agent (You)", text: "Hello Amit, would you like to schedule a call for Wakad projects?", time: "02:00 PM" },
+      { sender: "Client (Amit)", text: "Sure, let's meet at 11 AM.", time: "02:15 PM" }
+    ]
+  }
+];
 
 export function getStoredData<T>(key: string, defaultValue: T): T {
   if (typeof window === "undefined") return defaultValue;

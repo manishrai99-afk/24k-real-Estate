@@ -33,7 +33,7 @@ import {
   initialProperties,
   initialLedger,
   activeAgents,
-} from "../../../lib/mock-data";
+} from "../../lib/mock-data";
 
 // Brokerage Revenue Data (Pune West Corridor — H1 2026)
 const revenueData = [
@@ -44,6 +44,11 @@ const revenueData = [
   { month: "May", revenue: 1450000 },
   { month: "Jun", revenue: 1850000 },
 ];
+
+const formatPrice = (value: number) => {
+  if (value >= 10000000) return `₹ ${(value / 10000000).toFixed(2)} Cr`;
+  return `₹ ${(value / 100000).toFixed(0)} L`;
+};
 
 const containerVariants = {
   hidden: { opacity: 0 },

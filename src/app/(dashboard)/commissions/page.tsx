@@ -93,7 +93,7 @@ export default function CommissionsLedger() {
                 <td className="p-3 text-brand-400 font-bold">{formatINR(item.builderComm)}<div className="text-[8px] text-gray-600 mt-0.5">2.5%</div></td>
                 <td className="p-3">
                   <div className="space-y-1">
-                    {item.approvals.map((app, idx) => (
+                    {item.approvals.map((app: any, idx: number) => (
                       <div key={app.name} className="flex items-center gap-1 text-[9px]">
                         <span className={`w-1.5 h-1.5 rounded-full ${app.status === "APPROVED" ? "bg-emerald-500" : "bg-amber-500"}`} />
                         <span className="text-gray-500">{app.role}:</span>
